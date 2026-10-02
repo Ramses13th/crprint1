@@ -105,7 +105,7 @@
       const writePhrase = () => {
         const phrase = phrases[phraseIndex];
         visualPhrase.replaceChildren();
-        visualPhrase.classList.remove("typing-finished");
+        visualPhrase.classList.remove("is-changing");
 
         Array.from(phrase).forEach((character, index) => {
           if (character === " ") {
@@ -122,17 +122,12 @@
 
         const glyphCount = visualPhrase.querySelectorAll(".typed-char").length;
         window.setTimeout(() => {
-          const glyphs = Array.from(visualPhrase.querySelectorAll(".typed-char")).reverse();
-          glyphs.forEach((glyph, index) => {
-            glyph.style.setProperty("--erase-delay", (index * 22) + "ms");
-            glyph.classList.add("typed-char-erasing");
-          });
-
+          visualPhrase.classList.add("is-changing");
           window.setTimeout(() => {
             phraseIndex = (phraseIndex + 1) % phrases.length;
             writePhrase();
-          }, glyphs.length * 22 + 140);
-        }, Math.max(2350, glyphCount * 29 + 1350));
+          }, 150);
+        }, Math.max(2850, glyphCount * 29 + 1550));
       };
 
       writePhrase();
@@ -210,30 +205,32 @@
       }
     };
     const image = serviceShowcase.querySelector("[data-showcase-image]");
+    const alternateImage = image.cloneNode(false);
+    alternateImage.removeAttribute("data-showcase-image");
+    alternateImage.className = "showcase-image-layer";
+    alternateImage.alt = "";
+    alternateImage.setAttribute("aria-hidden", "true");
+    serviceShowcase.insertBefore(alternateImage, serviceShowcase.querySelector(".showcase-copy"));
     const kicker = serviceShowcase.querySelector("[data-showcase-kicker]");
     const title = serviceShowcase.querySelector("[data-showcase-title]");
     const price = serviceShowcase.querySelector("[data-showcase-price]");
     const link = serviceShowcase.querySelector("[data-showcase-link]");
     const showcaseCopy = serviceShowcase.querySelector(".showcase-copy");
     let imageVersion = 0;
-    let imageSwapTimer;
-    let activeIncomingImage = null;
+    let copySwapTimer = 0;
+    let activeImageLayer = image;
 
     serviceShowcase.querySelectorAll("[data-showcase-option]").forEach((button) => {
       button.addEventListener("click", () => {
         const service = services[button.dataset.showcaseOption];
-        if (!service) return;
+        if (!service || button.getAttribute("aria-pressed") === "true") return;
 
-        window.clearTimeout(imageSwapTimer);
-        if (activeIncomingImage) {
-          activeIncomingImage.remove();
-          activeIncomingImage = null;
-        }
+        window.clearTimeout(copySwapTimer);
         serviceShowcase.querySelectorAll("[data-showcase-option]").forEach((option) => {
           option.setAttribute("aria-pressed", String(option === button));
         });
         showcaseCopy.classList.add("is-switching");
-        window.setTimeout(() => showcaseCopy.classList.remove("is-switching"), 180);
+        copySwapTimer = window.setTimeout(() => showcaseCopy.classList.remove("is-switching"), 180);
         kicker.textContent = service.kicker;
         title.textContent = service.title;
         price.textContent = service.price;
@@ -243,33 +240,27 @@
         arrow.textContent = "↗";
         link.replaceChildren(document.createTextNode(service.linkText + " "), arrow);
         const version = ++imageVersion;
-        const preload = new Image();
-        let imagePrepared = false;
-        const showImage = async () => {
-          if (imagePrepared || version !== imageVersion) return;
-          imagePrepared = true;
-          if (preload.decode) await preload.decode().catch(() => {});
+        const previousImage = activeImageLayer;
+        const nextImage = activeImageLayer === image ? alternateImage : image;
+        let prepared = false;
+        const revealImage = async () => {
+          if (prepared || version !== imageVersion || !nextImage.complete || !nextImage.naturalWidth) return;
+          prepared = true;
+          if (nextImage.decode) await nextImage.decode().catch(() => {});
           if (version !== imageVersion) return;
-          preload.className = "showcase-incoming";
-          preload.alt = "";
-          preload.setAttribute("aria-hidden", "true");
-          image.alt = service.alt;
-          activeIncomingImage = preload;
-          serviceShowcase.append(preload);
-          window.requestAnimationFrame(() => {
-            window.requestAnimationFrame(() => preload.classList.add("is-visible"));
-          });
-          imageSwapTimer = window.setTimeout(() => {
-            if (version !== imageVersion) return;
-            image.src = service.image;
-            preload.remove();
-            if (activeIncomingImage === preload) activeIncomingImage = null;
-          }, 760);
+          nextImage.alt = service.alt;
+          nextImage.removeAttribute("aria-hidden");
+          previousImage.alt = "";
+          previousImage.setAttribute("aria-hidden", "true");
+          nextImage.classList.add("is-active");
+          previousImage.classList.remove("is-active");
+          activeImageLayer = nextImage;
         };
-        preload.onerror = () => { if (activeIncomingImage === preload) activeIncomingImage = null; };
-        preload.onload = showImage;
-        preload.src = service.image;
-        if (preload.complete && preload.naturalWidth) showImage();
+        nextImage.onload = revealImage;
+        nextImage.onerror = () => { if (version === imageVersion) nextImage.removeAttribute("data-load-version"); };
+        nextImage.dataset.loadVersion = String(version);
+        nextImage.src = service.image;
+        if (nextImage.complete && nextImage.naturalWidth) revealImage();
       });
     });
   }
@@ -394,5 +385,33 @@
       window.location.href = "mailto:hi@crprint.ro?subject=" + subject + "&body=" + body;
       if (formNote) formNote.textContent = "Am pregătit mesajul în aplicația ta de e-mail.";
     });
+  }
+
+  const siteIntro = document.querySelector("[data-site-intro]");
+  if (siteIntro && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let alreadySeen = false;
+    try {
+      alreadySeen = window.sessionStorage.getItem("crprint-intro-seen") === "1";
+      if (!alreadySeen) window.sessionStorage.setItem("crprint-intro-seen", "1");
+    } catch (_) {
+      // The intro still plays once on this page when storage is unavailable.
+    }
+    if (!alreadySeen) {
+      siteIntro.hidden = false;
+      siteIntro.removeAttribute("aria-hidden");
+      let exitTimer;
+      const finishIntro = () => {
+        if (siteIntro.classList.contains("is-exiting")) return;
+        window.clearTimeout(exitTimer);
+        siteIntro.classList.add("is-exiting");
+        window.setTimeout(() => siteIntro.remove(), 320);
+      };
+      const skipButton = siteIntro.querySelector("[data-intro-skip]");
+      if (skipButton) skipButton.addEventListener("click", finishIntro, { once: true });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") finishIntro();
+      }, { once: true });
+      exitTimer = window.setTimeout(finishIntro, 1460);
+    }
   }
 })();
