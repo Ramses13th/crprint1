@@ -1,0 +1,24 @@
+[
+  {
+    "id": "nava-24-septembrie",
+    "name": "Nava · 24 Septembrie",
+    "kind": "physical",
+    "price": 14900,
+    "stock": 20,
+    "active": true,
+    "image": "images/nava-studio.webp",
+    "description": "Machetă navală printată 3D, realizată după modelul din colecția noastră. Dimensiunea și finisajul se confirmă înainte de producție.",
+    "demo": true
+  },
+  {
+    "id": "nava-24-septembrie-digital",
+    "name": "Nava · fișier digital FBX",
+    "kind": "digital",
+    "price": 4900,
+    "stock": 100,
+    "active": true,
+    "image": "images/nava-side.webp",
+    "description": "Modelul digital al navei „24 Septembrie”, în format FBX. Explorează geometria în 3D și privește detaliile din orice unghi.",
+    "demo": true
+  }
+]

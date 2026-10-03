@@ -1,0 +1,74 @@
+{
+  "index": {
+    "title": "Printare, modelare și scanare 3D în Constanța — CR Print 3D",
+    "description": "Servicii de printare FDM și SLA, modelare și scanare 3D în Constanța. Prețuri de pornire, portofoliu și magazin de machete."
+  },
+  "despre": {
+    "title": "Atelierul CR Print 3D — Constanța",
+    "description": "Cunoaște atelierul CR Print 3D din Constanța și procesul de la idee la obiect real."
+  },
+  "servicii": {
+    "title": "Servicii 3D & prețuri de pornire — CR Print 3D",
+    "description": "Modelare, printare FDM și SLA, scanare 3D și FaceScan în Constanța. Alege serviciul potrivit proiectului."
+  },
+  "portofoliu": {
+    "title": "Portofoliu și modele 3D — CR Print 3D",
+    "description": "Aplicații de printare 3D, concepte de produse și modelul interactiv al navei 24 Septembrie."
+  },
+  "contact": {
+    "title": "Contact & ofertă — CR Print 3D Constanța",
+    "description": "Contactează CR Print 3D: hi@crprint.ro, 0735 961 151, Bravilor 4 Constanța. Luni–Vineri 10–18."
+  },
+  "magazin": {
+    "title": "Magazin de machete & modele 3D — CR Print 3D",
+    "description": "Explorează machete printate și modele digitale din colecția CR Print 3D. Colecția atelierului."
+  },
+  "produs-nava": {
+    "title": "Nava 24 Septembrie — machetă & model FBX",
+    "description": "Explorează în 3D nava 24 Septembrie. Machetă printată și fișier digital FBX, în magazinul CR Print 3D."
+  },
+  "cos": {
+    "title": "Coș de cumpărături — CR Print 3D",
+    "description": "Coșul tău de cumpărături."
+  },
+  "checkout": {
+    "title": "Finalizare comandă — CR Print 3D",
+    "description": "Datele de contact, livrare și rezumatul comenzii."
+  },
+  "comanda-confirmata": {
+    "title": "Confirmare comandă — CR Print 3D",
+    "description": "Referința și rezumatul comenzii."
+  },
+  "admin": {
+    "title": "Administrare locală — CR Print 3D",
+    "description": "Panou local pentru produse, comenzi și mesaje demo."
+  },
+  "confidentialitate": {
+    "title": "Confidențialitate — CR Print 3D",
+    "description": "Informații despre datele transmise și preferințele din browser."
+  },
+  "termeni": {
+    "title": "Termeni și condiții — CR Print 3D",
+    "description": "Informații despre produse, solicitări și comenzi."
+  },
+  "modelare-3d": {
+    "title": "Modelare 3D în Constanța — CR Print 3D",
+    "description": "Transformăm o idee, o schiță sau o piesă existentă într-un model 3D utilizabil."
+  },
+  "printare-fdm": {
+    "title": "Printare FDM în Constanța — CR Print 3D",
+    "description": "Printare prin extrudarea filamentului. O alegere practică pentru prototipuri, piese funcționale și serii mici."
+  },
+  "printare-sla": {
+    "title": "Printare SLA în Constanța — CR Print 3D",
+    "description": "Printare în rășină pentru forme cu detalii fine, miniaturi și suprafețe care cer precizie vizuală."
+  },
+  "scanare-3d": {
+    "title": "Scanare 3D în Constanța — CR Print 3D",
+    "description": "Capturăm geometria unui obiect pentru replicare, arhivare sau adaptare digitală."
+  },
+  "facescan": {
+    "title": "FaceScan / BodyScan în Constanța — CR Print 3D",
+    "description": "Scanare 3D pentru portrete și forme umane, urmată de pregătirea modelului pentru utilizare digitală sau printare."
+  }
+}

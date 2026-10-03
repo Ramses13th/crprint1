@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /ghid/
+Disallow: /checkout.html
+Disallow: /cos.html
+Sitemap: https://crprint.ro/sitemap.xml

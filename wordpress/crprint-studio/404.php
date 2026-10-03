@@ -1,0 +1,1 @@
+<?php if(!defined('ABSPATH'))exit;get_header();?><section class="section"><div class="container narrow empty-state"><p class="eyebrow">404</p><h1>Forma aceasta<br>încă nu există.</h1><p>Pagina căutată nu a fost găsită.</p><a class="button button-primary" href="<?php echo esc_url(home_url('/')); ?>">Înapoi la atelier ↗</a></div></section><?php get_footer(); ?>
