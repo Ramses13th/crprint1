@@ -277,6 +277,13 @@ from importlib.util import spec_from_file_location,module_from_spec
 details_spec=spec_from_file_location('guide_details',root/'tools/guide-details.py')
 details=module_from_spec(details_spec);details_spec.loader.exec_module(details)
 details.expand(P,block,steps,note,source)
+quick_start = block('pornire-rapida','Pornește magazinul local în 3 pași',steps([
+'Deschide folderul <strong>CRPRINT</strong> și fă dublu clic pe <strong>Start-Demo.cmd</strong>. Nu trebuie să pornești un server separat pentru magazin.',
+'Așteaptă mesajul cu adresa <strong>http://127.0.0.1:4173/</strong>. Păstrează fereastra deschisă cât folosești site-ul.',
+'Deschide <a href="../magazin.html">magazinul</a> sau <a href="../admin.html">administrarea produselor și comenzilor</a>. Din administrare poți modifica produsele; schimbările se salvează pe acest computer.'
+])+note('Dacă site-ul se deschide deja, serverul este pornit: nu mai deschide încă o fereastră. Pentru oprire, apasă <strong>Ctrl+C</strong> în fereastra serverului. La următoarea utilizare, pornește din nou Start-Demo.cmd.')+'<p><a href="../PORNIRE-MAGAZIN.md">Instrucțiuni scurte și soluții pentru erori →</a></p><p>Pentru administrarea în WooCommerce, pornește separat <strong>Start-WordPress.cmd</strong>, așteaptă confirmarea din fereastră, apoi deschide <a href="http://127.0.0.1:9400/wp-admin/">panoul WordPress</a>. Prima pornire durează mai mult și necesită internet. Detaliile sunt în <a href="wordpress.html">capitolul WordPress</a>.</p>')
+title, subtitle, content = P['index']
+P['index'] = (title, subtitle, quick_start + content)
 order=list(P)
 for key,(title,subtitle,content) in P.items():
     nav=''.join(f'<a href="{k}.html" {"aria-current=page" if k==key else ""}><span>{i+1:02}</span>{html.escape(v[0])}</a>' for i,(k,v) in enumerate(P.items()))

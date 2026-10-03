@@ -6,6 +6,8 @@ Interfața pentru vizitatori are aspectul unui site public: nu afișează etiche
 
 Manualul separat din `ghid/` are 10 capitole, peste 12.000 de cuvinte, căutare, calculator de buget și progres salvat în browser. Include instrucțiuni de la identificarea găzduirii până la instalarea ZIP-urilor, editarea produselor, SMTP, livrare, publicare și campanii Google/Meta/TikTok pentru 300–600 lei lunar.
 
+**Începe aici: [ghidul scurt pentru pornirea magazinului](PORNIRE-MAGAZIN.md).**
+
 ## Pornire pe Windows
 
 1. Dublu-click pe **Start-Demo.cmd**. Păstrează fereastra deschisă.
