@@ -4,7 +4,11 @@ Site cu pagini separate, temă întunecată/luminoasă, magazin demonstrativ și
 
 Interfața pentru vizitatori are aspectul unui site public: nu afișează etichete de demonstrație. Protecțiile locale rămân active în backend. Contact are acces direct la telefon/email/WhatsApp, câmpuri opționale extensibile și o hartă încărcată la cerere.
 
-Manualul separat din `ghid/` are 12 capitole, peste 12.000 de cuvinte, căutare, calculator de buget și progres salvat în browser. Include un traseu de la zero pentru cPanel și SmartBill: backup, staging prin WP Toolkit/Softaculous, HTTPS, PHP, emailul cPanel, facturare manuală și integrare API, ciorne, încasări, SPV/e-Factura și instalarea ZIP-urilor, editarea produselor, SMTP, livrare, publicare și campanii Google/Meta/TikTok pentru 300–600 lei lunar.
+Manualul separat din `ghid/` are 12 capitole, peste 12.000 de cuvinte și 97 de secțiuni. Include diagrame originale pentru fiecare capitol, comparații vizuale pentru fizic/digital și factură/încasare, pași numerotați, secțiuni care se pot restrânge, căutare direct în secțiuni, copierea exemplelor, tipărire, teme luminoasă/întunecată și progres salvat în browser. Pe telefon, capitolele sunt într-un meniu opac, operabil de la tastatură.
+
+Instrucțiunile au fost revizuite la **5 octombrie 2026** folosind documentația oficială. Panoul „Surse și verificări” din fiecare capitol arată linkurile, ce este documentat, ce depinde de configurare și ce trebuie confirmat în contul firmei. Paginile publice Meta pentru formulare/Reels cer autentificare; această limită este indicată, iar verificarea evenimentelor folosește documentația WooCommerce și codul oficial Meta. Recomandările de promovare și exemplele de cost sunt separate de regulile platformelor.
+
+Traseul de la zero include cPanel și SmartBill: backup, staging prin WP Toolkit/Softaculous, HTTPS, PHP, emailul cPanel, facturare manuală și integrare API, ciorne, încasări, SPV/e-Factura și instalarea ZIP-urilor, editarea produselor, SMTP, livrare, publicare și campanii Google/Meta/TikTok pentru 300–600 lei lunar.
 
 **Începe aici: [ghidul scurt pentru pornirea magazinului](PORNIRE-MAGAZIN.md).**
 
@@ -66,7 +70,10 @@ Paginile juridice sunt modele demonstrative. Completează datele firmei, condiț
 - `tools/shared-ui.js`: animațiile, meniul, tema și încărcarea viewerului la cerere.
 - `tools/commerce.js`: magazinul demonstrativ; `dev-server.mjs`: API local.
 - `tools/build-wordpress.py`: resursele temei și ZIP-urile.
-- `tools/build-guide.py`: cele 10 capitole ale ghidului.
+- `tools/build-guide.py`: generează cele 12 capitole și indexul de căutare al ghidului.
+- `tools/guide-details.py`: pașii detaliați pentru începători.
+- `tools/guide-cpanel-smartbill.py`: traseul adaptat cPanel și SmartBill.
+- `tools/guide-presentation.py`: diagramele, rezumatele și corecțiile documentate ale ghidului.
 
 Reconstrucție: `npm run build` cu Python disponibil în PATH. Pe acest computer se poate folosi Python din runtime-ul Codex. Paginile generate se suprascriu la reconstrucție; modifică generatorul pentru schimbări permanente. În WordPress, produsele se editează în WooCommerce, iar paginile importate într-un bloc HTML personalizat.
 
