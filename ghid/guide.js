@@ -1,7 +1,8 @@
 (()=>{
  const q=s=>document.querySelector(s);let complete=[];
  try{complete=JSON.parse(localStorage.getItem('crprint-guide-progress')||'[]');}catch{}
- function progress(){q('[data-progress]').textContent=complete.length+'/10 capitole parcurse';q('progress').value=complete.length;const button=q('[data-complete]');const read=complete.includes(button.dataset.complete);button.textContent=read?'Capitol parcurs ✓ · Anulează marcarea':'Marchează capitolul ca parcurs ✓';button.setAttribute('aria-pressed',String(read));}
+ const chapterKeys=[...document.querySelectorAll('.sidebar nav a')].map(a=>a.getAttribute('href').replace('.html',''));complete=[...new Set(complete)].filter(key=>chapterKeys.includes(key));
+ function progress(){q('[data-progress]').textContent=complete.length+'/'+chapterKeys.length+' capitole parcurse';q('progress').value=complete.length;const button=q('[data-complete]');const read=complete.includes(button.dataset.complete);button.textContent=read?'Capitol parcurs ✓ · Anulează marcarea':'Marchează capitolul ca parcurs ✓';button.setAttribute('aria-pressed',String(read));}
  progress();q('[data-complete]').addEventListener('click',event=>{const key=event.target.dataset.complete;complete=complete.includes(key)?complete.filter(x=>x!==key):[...complete,key];try{localStorage.setItem('crprint-guide-progress',JSON.stringify(complete));}catch{}progress();});
  q('.theme-button').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('crprint-guide-theme',theme);}catch{}});
  const search=q('#guide-search'),results=q('.search-results');let index=[];

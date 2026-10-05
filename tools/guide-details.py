@@ -9,7 +9,7 @@ def expand(P, block, steps, note, source):
         'Intră în Magazin, adaugă o machetă și verifică Coșul. Folosește date fictive la exercițiul de comandă. Panoul rapid este la <a href="../admin.html">administrare</a>; comenzile și mesajele apar acolo.',
         'Dublu-click pe <strong>Start-WordPress.cmd</strong>. Prima pornire poate dura câteva minute fiindcă descarcă WordPress. Nu închide terminalul. Așteaptă adresa cu portul 9400 și deschide <a href="http://127.0.0.1:9400/wp-admin/">panoul WordPress local</a>.',
         'Exersează schimbarea unui preț în Produse și verificarea unei comenzi. În acest mediu nu se trimit emailuri externe și nu se încasează bani. Aceste protecții sunt intenționate; aspectul pentru vizitatori este cel al unui magazin normal.',
-        'Abia după aceste exerciții, găsește accesul la găzduirea reală și urmează capitolul WordPress. Nu încărca baza locală cu comenzile fictive peste site-ul existent.'
+        'După exerciții, urmează capitolul cPanel pentru găzduirea ta, apoi WordPress, magazin, email și SmartBill. Nu încărca baza locală cu comenzile fictive peste site-ul existent.'
     ])+note('<strong>La sfârșitul exercițiului:</strong> ai două ferestre de terminal deschise și poți vedea atât designul rapid, cât și panoul WordPress. Ca să oprești un server, selectează fereastra lui și apasă Ctrl+C. Datele WordPress rămân pentru următoarea pornire.'))
     add('index','trusa','Pregătește o singură fișă privată', '<p>Într-un document păstrat numai de tine, notează următoarele. Nu pune parole în acest ghid, în GitHub sau într-un document public.</p>'+steps([
         'Domeniu: crprint.ro. Cine l-a cumpărat și când expiră? Domeniul este numele; găzduirea este computerul conectat permanent la internet care ține site-ul.',
@@ -120,7 +120,7 @@ Nu doresc să fie înlocuit site-ul existent înainte de verificare.</code></pre
         'După SMTP, intră în Instrumente → CR Print — configurare și verifică destinatarul hi@crprint.ro. Trimite formularul Contact dintr-un browser obișnuit și verifică mesajul în inbox și în Solicitări 3D.',
         'În WooCommerce → Setări → Emailuri verifică destinatarul emailului Comandă nouă, numele expeditorului și emailurile activate. Fă o comandă de probă și verifică atât emailul atelierului, cât și al cumpărătorului.'
     ])+note('<strong>Local:</strong> WordPress-ul de pe 9400 păstrează solicitările, dar blochează intenționat emailul extern. Configurează și verifică SMTP pe copia de lucru a găzduirii. Instalarea ZIP-urilor pe găzduire nu activează protecția locală CRPRINT_LOCAL_DEMO.')+source('Configurarea Other SMTP','https://wpmailsmtp.com/docs/how-to-set-up-the-other-smtp-mailer-in-wp-mail-smtp/'))
-    add('email','brevo-concret','6. Alternativă: Brevo, dacă gazda nu oferă SMTP bun',steps([
+    add('email','brevo-concret','8. Alternativă: Brevo, dacă gazda nu oferă SMTP bun',steps([
         'Deschide site-ul oficial Brevo și compară planul gratuit cu necesarul tău. Limita și funcțiile pot evolua; nu cumpăra un plan numai pentru a trimite primele solicitări.',
         'Creează un cont al firmei și confirmă emailul. În setările expeditorilor/domeniilor adaugă crprint.ro. Brevo îți afișează înregistrările DNS necesare.',
         'Trimite gazdei exact acele înregistrări sau introdu-le în panoul DNS dacă știi unde se gestionează domeniul. Nu schimba nameserverele și nu șterge MX-urile pentru această operațiune: MX controlează unde primești email.',

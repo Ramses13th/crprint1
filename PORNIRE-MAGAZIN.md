@@ -69,3 +69,15 @@ Aceasta este o a doua variantă, separată de magazinul de la portul 4173. Produ
 WordPress local necesită Node.js 24.18 sau mai nou. Nu trebuie să instalezi separat PHP sau MySQL pentru această variantă. Pentru oprire, apasă Ctrl+C în fereastra sa.
 
 Pentru instalarea pe găzduire, emailuri reale, plăți, livrare și publicare, urmează manualul de la **http://127.0.0.1:4173/ghid/**, începând cu capitolul **WordPress de la zero**.
+
+## Când treci pe găzduirea ta
+
+Folosești cPanel și SmartBill. După exercițiile locale, citește ghidul în această ordine:
+
+1. **cPanel de la zero** — http://127.0.0.1:4173/ghid/cpanel.html
+2. **WordPress de la zero** — instalarea celor două ZIP-uri pe copia de lucru.
+3. **Magazinul WooCommerce** și **Email & anti-spam**.
+4. **SmartBill & facturare** — http://127.0.0.1:4173/ghid/smartbill.html
+5. **SEO & lansare**, apoi capitolele de promovare.
+
+Nu trebuie să conectezi SmartBill real pentru a folosi magazinul local. Ghidul explică separat facturarea manuală și integrarea, în funcție de abonamentul pe care îl ai.

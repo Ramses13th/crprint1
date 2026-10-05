@@ -4,7 +4,7 @@ Site cu pagini separate, temă întunecată/luminoasă, magazin demonstrativ și
 
 Interfața pentru vizitatori are aspectul unui site public: nu afișează etichete de demonstrație. Protecțiile locale rămân active în backend. Contact are acces direct la telefon/email/WhatsApp, câmpuri opționale extensibile și o hartă încărcată la cerere.
 
-Manualul separat din `ghid/` are 10 capitole, peste 12.000 de cuvinte, căutare, calculator de buget și progres salvat în browser. Include instrucțiuni de la identificarea găzduirii până la instalarea ZIP-urilor, editarea produselor, SMTP, livrare, publicare și campanii Google/Meta/TikTok pentru 300–600 lei lunar.
+Manualul separat din `ghid/` are 12 capitole, peste 12.000 de cuvinte, căutare, calculator de buget și progres salvat în browser. Include un traseu de la zero pentru cPanel și SmartBill: backup, staging prin WP Toolkit/Softaculous, HTTPS, PHP, emailul cPanel, facturare manuală și integrare API, ciorne, încasări, SPV/e-Factura și instalarea ZIP-urilor, editarea produselor, SMTP, livrare, publicare și campanii Google/Meta/TikTok pentru 300–600 lei lunar.
 
 **Începe aici: [ghidul scurt pentru pornirea magazinului](PORNIRE-MAGAZIN.md).**
 
@@ -19,6 +19,10 @@ Manualul separat din `ghid/` are 10 capitole, peste 12.000 de cuvinte, căutare,
 Demo-ul rapid necesită Node.js 22+. WordPress Playground necesită Node.js 24.18+ și internet la instalarea inițială. Scriptul folosește runtime-ul Codex disponibil pe acest computer; pe alte computere instalează Node.js LTS de pe site-ul oficial. Nu trebuie instalat PHP/MySQL pentru Playground.
 
 Oprește serverele cu Ctrl+C în ferestrele lor. Dacă portul este ocupat, oprește serverul anterior sau folosește `Start-Demo.ps1 -Port 4180` / `Start-WordPress.ps1 -Port 9401`.
+
+## Ghid adaptat cPanel + SmartBill
+
+Începe din `ghid/index.html`. Ordinea este cPanel → WordPress → WooCommerce → Email → SmartBill → Lansare. Capitolele noi sunt `ghid/cpanel.html` și `ghid/smartbill.html`. Abonamentul SmartBill nu este presupus: sunt explicate atât integrarea eligibilă, cât și facturarea manuală. Ghidul nu conectează contul SmartBill real și nu activează emiterea facturilor.
 
 ## Cele două medii
 
